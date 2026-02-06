@@ -106,12 +106,23 @@ class AdminViewController
                 }
             }
 
+            // Limpiamos las fechas ANTES de enviarlas ---
+            $raw_inicio = get_post_meta( $post->ID, 'fecha_inicio', true );
+            $raw_fin    = get_post_meta( $post->ID, 'fecha_fin', true );
+
+            // Si está vacío o es ceros, lo ponemos como NULL
+            $fecha_inicio = (empty($raw_inicio) || $raw_inicio === '0000-00-00') ? null : $raw_inicio;
+            $fecha_fin    = (empty($raw_fin)    || $raw_fin === '0000-00-00')    ? null : $raw_fin;
+            // -----------------------------------------------------------
+
             $rows[] = [
                 'ID'           => $post->ID,
                 'worker_id'    => $trabajador_id,
                 'worker_name'  => $worker_name,
-                'fecha_inicio' => get_post_meta( $post->ID, 'fecha_inicio', true ),
-                'fecha_fin'    => get_post_meta( $post->ID, 'fecha_fin', true ),
+                
+                'fecha_inicio' => $fecha_inicio,
+                'fecha_fin'    => $fecha_fin,
+                
                 'dias_totales' => (int) get_post_meta( $post->ID, 'dias_totales', true ),
                 'estado'       => get_post_meta( $post->ID, 'estado', true ),
                 'sede_id'      => $sede_id,

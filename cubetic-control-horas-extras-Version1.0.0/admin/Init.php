@@ -364,7 +364,7 @@ class Init
             'nonce'   => wp_create_nonce('wp_rest'),
             'js_url'  => CHE_JS_URL . 'dashboard/',
             'css_url' => CHE_CSS_URL . 'admin/',
-            'version' => CHE_VERSION,
+            'version' => time(), // Usar timestamp para evitar cache en desarrollo (cambiar a CHE_VERSION en producción)
             // Mapeo de secciones a sus archivos JS/CSS
             'modules' => [
                 'partes' => [

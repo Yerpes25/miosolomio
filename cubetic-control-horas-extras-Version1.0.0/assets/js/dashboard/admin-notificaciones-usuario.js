@@ -94,7 +94,7 @@
                             </td>
                             <td>${notif.message}</td>
                             <td><code>${notif.type}</code></td>
-                            <td title="${notif.created_at}">${formatTimeAgo(notif.created_at)}</td>
+                            <td title="${notif.date || notif.created_at || ''}">${formatTimeAgo(notif.date || notif.created_at || notif.createdAt)}</td>
                             <td>
                                 <span class="che-status-badge ${notif.is_read ? 'read' : 'unread'}">
                                     ${notif.is_read ? '✓ Leída' : '○ No leída'}
@@ -121,16 +121,36 @@
         });
     }
 
-    function formatTimeAgo(dateString) {
-        const date = new Date(dateString);
+    function formatTimeAgo(dateInput) {
+        if (!dateInput) return '';
+
+        // Intentar parsear varias formas comunes de fecha
+        let date = new Date(dateInput);
+
+        // Si viene en formato 'YYYY-MM-DD HH:MM:SS' (sin T), intentar reemplazar el espacio
+        if (isNaN(date.getTime()) && typeof dateInput === 'string' && dateInput.indexOf(' ') !== -1) {
+            date = new Date(dateInput.replace(' ', 'T'));
+        }
+
+        // Si sigue inválida y es numérica, tratar como timestamp (segundos o milisegundos)
+        if (isNaN(date.getTime()) && !isNaN(Number(dateInput))) {
+            const n = Number(dateInput);
+            date = new Date(n > 1e12 ? n : n * 1000);
+        }
+
+        if (isNaN(date.getTime())) {
+            // Devolver el valor crudo como fallback legible
+            return String(dateInput);
+        }
+
         const now = new Date();
         const diff = Math.floor((now - date) / 1000);
-        
+
         if (diff < 60) return 'hace un momento';
         if (diff < 3600) return 'hace ' + Math.floor(diff / 60) + ' min';
         if (diff < 86400) return 'hace ' + Math.floor(diff / 3600) + ' h';
         if (diff < 604800) return 'hace ' + Math.floor(diff / 86400) + ' días';
-        
+
         return date.toLocaleDateString('es-ES') + ' ' + date.toLocaleTimeString('es-ES', {hour: '2-digit', minute: '2-digit'});
     }
 
