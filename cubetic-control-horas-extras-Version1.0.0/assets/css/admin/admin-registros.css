@@ -1,0 +1,352 @@
+/**
+ * Estilos para la vista de registros de actividades
+ */
+
+.che-admin-section[data-section="registros"] {
+    padding: 20px;
+}
+
+.che-admin-section[data-section="registros"] h2 {
+    margin-bottom: 10px;
+    font-size: 24px;
+    color: #333;
+}
+
+.che-section-description {
+    color: #666;
+    margin-bottom: 25px;
+    font-size: 14px;
+}
+
+/* Botón refrescar estilo verde */
+#che-registros-refresh-btn {
+    background-color: #2D8A56 !important;
+    color: white !important;
+    border: none !important;
+    padding: 8px 16px !important;
+    border-radius: 4px !important;
+    cursor: pointer !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    transition: background-color 0.3s ease !important;
+}
+
+#che-registros-refresh-btn:hover {
+    background-color: #24B296 !important;
+}
+
+#che-registros-refresh-btn .dashicons {
+    font-size: 16px;
+    line-height: 1;
+}
+
+/* Filtros */
+.che-registros-filters {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border: 1px solid #e9ecef;
+}
+
+.che-filter-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.che-filter-group label {
+    font-weight: 600;
+    margin-bottom: 6px;
+    font-size: 13px;
+    color: #333;
+}
+
+.che-filter-group input,
+.che-filter-group select {
+    padding: 10px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    background: #fff;
+    transition: border-color 0.2s;
+}
+
+.che-filter-group input:focus,
+.che-filter-group select:focus {
+    outline: none;
+    border-color: #4a90a4;
+    box-shadow: 0 0 0 3px rgba(74, 144, 164, 0.1);
+}
+
+/* Tabla de registros */
+.che-registros-container {
+    overflow-x: auto;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    border: 1px solid #e9ecef;
+    background: #fff;
+}
+
+.che-registros-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+}
+
+.che-registros-table thead {
+    background: linear-gradient(180deg, #3d5061 0%, #556b7f 50%, #3d5061 100%);
+    border-bottom: 2px solid #3d5061;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.che-registros-table th {
+    padding: 14px 15px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 12px;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.che-registros-table td {
+    padding: 14px 15px;
+    border-bottom: 1px solid #f0f2f5;
+    font-size: 14px;
+    color: #495057;
+}
+
+.che-registros-table tbody tr {
+    transition: background-color 0.2s;
+}
+
+.che-registros-table tbody tr:hover {
+    background: #f8f9fa;
+}
+
+.che-registros-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Columnas específicas */
+.che-registros-table .col-fecha {
+    width: 170px;
+    font-family: 'Courier New', monospace;
+    font-size: 13px;
+}
+
+.che-registros-table .col-usuario {
+    width: 130px;
+    font-weight: 500;
+}
+
+.che-registros-table .col-actividad {
+    width: 180px;
+}
+
+.che-registros-table .col-descripcion {
+    min-width: 300px;
+    max-width: 400px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.che-registros-table .col-objeto {
+    width: 140px;
+    font-size: 13px;
+}
+
+.che-registros-table .col-ip {
+    width: 130px;
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    color: #6c757d;
+}
+
+/* Badges de actividad */
+.che-activity-badge {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    white-space: nowrap;
+    text-transform: capitalize;
+}
+
+.che-activity-badge.aprobacion {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.che-activity-badge.rechazo {
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.che-activity-badge.solicitud {
+    background: #cfe2ff;
+    color: #084298;
+    border: 1px solid #b6d4fe;
+}
+
+.che-activity-badge.nuevo {
+    background: #d1ecf1;
+    color: #0c5460;
+    border: 1px solid #bee5eb;
+}
+
+.che-activity-badge.otro {
+    background: #e2e3e5;
+    color: #383d41;
+    border: 1px solid #d3d6d8;
+}
+
+/* Fila de carga */
+.che-loading-row td {
+    text-align: center;
+    color: #999;
+    padding: 40px 15px;
+}
+
+.che-text-center {
+    text-align: center !important;
+}
+
+/* Paginación */
+#che-registros-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.che-pagination button {
+    padding: 10px 14px;
+    border: 1px solid #dee2e6;
+    background: #fff;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 500;
+    transition: all 0.2s;
+    color: #495057;
+}
+
+.che-pagination button:hover:not(:disabled) {
+    background: #f8f9fa;
+    border-color: #adb5bd;
+    color: #333;
+}
+
+.che-pagination button.active {
+    background: #4a90a4;
+    color: #fff;
+    border-color: #4a90a4;
+}
+
+.che-pagination button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Mensajes */
+.che-message {
+    padding: 15px 20px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.che-message-info {
+    background: #cfe2ff;
+    color: #084298;
+    border: 1px solid #b6d4fe;
+}
+
+.che-message-error {
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.che-message-success {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .che-registros-filters {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .che-registros-table .col-descripcion {
+        min-width: 200px;
+        max-width: 250px;
+    }
+}
+
+@media (max-width: 768px) {
+    .che-registros-filters {
+        grid-template-columns: 1fr;
+    }
+
+    .che-registros-container {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .che-registros-table {
+        font-size: 12px;
+    }
+
+    .che-registros-table th,
+    .che-registros-table td {
+        padding: 10px 8px;
+    }
+
+    .che-registros-table .col-fecha {
+        width: 140px;
+        font-size: 11px;
+    }
+
+    .che-registros-table .col-usuario {
+        width: 100px;
+    }
+
+    .che-registros-table .col-actividad {
+        width: 130px;
+    }
+
+    .che-registros-table .col-descripcion {
+        min-width: 180px;
+        max-width: 200px;
+        font-size: 12px;
+    }
+
+    .che-registros-table .col-objeto {
+        display: none;
+    }
+
+    .che-registros-table .col-ip {
+        display: none;
+    }
+
+    .che-pagination button {
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+}

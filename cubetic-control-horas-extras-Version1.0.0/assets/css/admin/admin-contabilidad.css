@@ -1,0 +1,851 @@
+/* ============================================
+   MÓDULO DE CONTABILIDAD - ESTILOS
+   ============================================ */
+
+/* Modal de autenticación */
+.che-contabilidad-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+}
+
+.che-contabilidad-modal-content {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    max-width: 450px;
+    width: 90%;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.che-contabilidad-modal-content h3 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: #333;
+    font-size: 1.5rem;
+}
+
+.che-contabilidad-modal-content p {
+    margin-bottom: 1.5rem;
+    color: #666;
+}
+
+.che-form-group {
+    margin-bottom: 1.5rem;
+}
+
+.che-form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #333;
+}
+
+.che-form-group input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: border-color 0.2s ease;
+}
+
+.che-form-group input:focus {
+    outline: none;
+    border-color: #4caf50;
+}
+
+.che-message {
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border-radius: 4px;
+    display: none;
+    font-size: 14px;
+}
+
+.che-form-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+}
+
+.btn-secondary {
+    background: #6c757d;
+}
+
+.btn-secondary:hover {
+    background: #5a6268;
+}
+
+.btn-primary {
+    background: #4caf50;
+}
+
+.btn-primary:hover {
+    background: #45a049;
+}
+
+/* Filtros estilo WordPress */
+.che-date-input {
+    max-width: 150px;
+    margin-right: 8px;
+}
+
+#che-contabilidad-fechas-personalizadas {
+    display: inline-block;
+}
+
+/* Ajustes para los selectores */
+#che-contabilidad-sede-filter,
+#che-contabilidad-periodo {
+    margin-right: 8px;
+}
+
+/* Estilos para inputs de búsqueda en contabilidad */
+#che-contabilidad-buscar,
+#che-contabilidad-buscar-sedes {
+    padding: 0.65rem 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    background: #fff;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+#che-contabilidad-buscar:focus,
+#che-contabilidad-buscar-sedes:focus {
+    outline: none;
+    border-color: #4caf50;
+    box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.1);
+}
+
+#che-contabilidad-buscar-sedes {
+    padding: 0.75rem;
+    width: 250px;
+}
+.tablenav{
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+}
+/* Mantener botones de exportación en la misma línea */
+.che-contabilidad-content .tablenav .alignright {
+    float: right;
+}
+
+/* Estilo para botones de exportar */
+#che-contabilidad-exportar-asesoria,
+#che-contabilidad-exportar {
+    background-color: #2271b1 !important;
+    color: white !important;
+    border: none !important;
+    padding: 8px 16px !important;
+    border-radius: 4px !important;
+    cursor: pointer !important;
+    transition: background-color 0.3s ease !important;
+    font-weight: 500 !important;
+}
+
+#che-contabilidad-exportar-asesoria:hover,
+#che-contabilidad-exportar:hover {
+    background-color: #135e96 !important;
+}
+
+
+/* Resumen económico - Cards */
+.che-contabilidad-summary {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.che-contabilidad-card {
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    border-left: 4px solid #4caf50;
+}
+
+.che-contabilidad-card h3 {
+    margin: 0 0 1rem 0;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #666;
+}
+
+.che-contabilidad-value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #333;
+    margin: 0.5rem 0;
+}
+
+.che-contabilidad-label {
+    font-size: 0.875rem;
+    color: #999;
+}
+
+
+.che-contabilidad-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    background: #f9f9f9;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+
+.che-contabilidad-header h3 {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 600;
+    color: #1d2327;
+}
+
+.che-contabilidad-header-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.che-contabilidad-header-actions .dashicons {
+    font-size: 16px;
+    line-height: 1;
+}
+
+
+
+.che-contabilidad-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 8px;
+}
+
+.che-contabilidad-table thead {
+    background: linear-gradient(180deg, #3582c4 0%, #2271b1 100%);
+    border-radius: 0 8px 8px 0;
+
+}
+
+.che-contabilidad-table th {
+    padding: 10px 12px;
+    text-align: left;
+    font-weight: 600;
+    color: #fff;
+    border-bottom: none;
+    font-size: 13px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.che-contabilidad-table td {
+    padding: 12px;
+    border-bottom: 1px solid #e5e5e5;
+    color: #1a1a1a;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+.che-contabilidad-table tbody tr:hover {
+    background: #f6f7f7;
+}
+
+.che-contabilidad-table tbody tr {
+    transition: background-color 0.1s ease;
+}
+
+.btn-small {
+    padding: 0.5rem 1rem;
+    font-size: 13px;
+}
+
+/* Detalle de trabajador */
+.che-contabilidad-detalle {
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-top: 2rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#che-contabilidad-detalle-close {
+    margin-bottom: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .tablenav .actions {
+        margin-bottom: 8px;
+    }
+    
+    #che-contabilidad-sede-filter,
+    #che-contabilidad-periodo {
+        margin-bottom: 5px;
+    }
+
+    .che-contabilidad-summary {
+        grid-template-columns: 1fr;
+    }
+
+    .che-contabilidad-table {
+        font-size: 12px;
+    }
+
+    .che-contabilidad-table th,
+    .che-contabilidad-table td {
+        padding: 6px 8px;
+    }
+}
+
+/* Estados de carga */
+.che-contabilidad-loading {
+    text-align: center;
+    padding: 2rem;
+    color: #666;
+}
+
+.che-contabilidad-loading::after {
+    content: '...';
+    animation: dots 1.5s infinite;
+}
+
+@keyframes dots {
+    0%, 20% { content: '.'; }
+    40% { content: '..'; }
+    60%, 100% { content: '...'; }
+}
+
+/* ============================================
+   MODAL DE TARIFAS
+   ============================================ */
+.che-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 10000;
+    align-items: center;
+    justify-content: center;
+}
+
+.che-modal.active {
+    display: flex;
+}
+
+.che-modal-content {
+    background: #fff;
+    border-radius: 8px;
+    max-width: 600px;
+    width: 90%;
+    max-height: 85vh;
+    overflow-y: auto;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    animation: modalFadeIn 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+#che-admin-create-user-wrapper .che-modal-content {
+    max-width: 650px;
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.che-modal-header {
+    padding: 1.5rem;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.che-modal-header h3 {
+    margin: 0;
+    color: #333;
+    font-size: 1.25rem;
+}
+
+.che-modal-close {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #999;
+    cursor: pointer;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.che-modal-close:hover {
+    background: #f5f5f5;
+    color: #333;
+}
+
+.che-modal-body {
+    padding: 1rem 1.5rem;
+}
+
+.che-modal-body .che-form-group {
+    margin-bottom: 1rem;
+}
+
+.che-modal-body .che-form-group:last-child {
+    margin-bottom: 0;
+}
+
+.che-modal-body .che-input,
+.che-modal-body select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    box-sizing: border-box;
+    font-family: inherit;
+    background: #fff;
+}
+
+.che-modal-body .che-input:focus,
+.che-modal-body select:focus {
+    outline: none;
+    border-color: #4caf50;
+    box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.1);
+}
+
+.che-modal-body label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #333;
+    font-size: 14px;
+}
+
+.che-modal-body .che-input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: border-color 0.2s ease;
+    box-sizing: border-box;
+}
+
+.che-modal-body .che-input:focus {
+    outline: none;
+    border-color: #4caf50;
+    box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.1);
+}
+
+.che-modal-body small {
+    display: block;
+    margin-top: 0.25rem;
+    color: #666;
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+/* Secciones de formulario dentro del modal */
+.che-form-section {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.che-form-section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.che-form-subtitle {
+    font-size: 0.75rem;
+    color: #4caf50;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+    font-weight: 800;
+    margin-top: 0;
+}
+
+.che-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.che-form-grid .che-form-group:last-child {
+    grid-column: 1 / -1;
+}
+
+.che-modal-footer {
+    padding: 1rem 1.5rem;
+    border-top: 1px solid #ddd;
+    display: flex;
+    gap: 0.75rem;
+    justify-content: flex-end;
+}
+
+.che-btn-secondary {
+    background: #6c757d !important;
+    color: #fff;
+}
+
+.che-btn-secondary:hover {
+    background: #5a6268 !important;
+}
+
+@media (max-width: 576px) {
+    .che-modal-content {
+        width: 95%;
+        margin: 1rem;
+    }
+
+    .che-modal-footer {
+        flex-direction: column;
+    }
+
+    .che-modal-footer .all-btn {
+        width: 100%;
+    }
+}
+/* ============================================
+   TARJETAS DE EMPRESAS (SEDES)
+   ============================================ */
+
+#che-contabilidad-sedes-view {
+    display: block;
+}
+
+#che-contabilidad-sedes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1rem;
+}
+
+.che-contabilidad-sede-card {
+    background: #f5f6fa;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(2, 49, 119, 0.644);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 1px solid #e0e0e0;
+}
+
+.che-contabilidad-sede-card:hover {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+    transform: translateY(-3px);
+}
+
+.che-contabilidad-sede-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #000000;
+    padding: 1rem 1.25rem;
+}
+
+.che-contabilidad-sede-card-header h4 {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.che-contabilidad-sede-card-body {
+    padding: 1rem 1.25rem;
+    font-size: 0.9rem;
+    flex-grow: 1;
+    background: white;
+}
+
+.che-contabilidad-sede-card-body p {
+    margin: 0.6rem 0;
+    color: #555;
+}
+
+.che-contabilidad-sede-card-body strong {
+    color: #2c3e50;
+}
+
+.che-sede-workers-count,
+.che-sede-budget-forecast {
+    font-weight: 600;
+    color: #2271b1;
+}
+
+.che-contabilidad-sede-card-footer {
+    padding: 0.75rem 1rem;
+    border-top: 1px solid #eee;
+    display: flex;
+    justify-content: center;
+    background: white;
+}
+
+.che-contabilidad-view-workers-btn {
+    width: 100%;
+    text-align: center;
+    background-color: #2271b1 !important;
+    color: white !important;
+    padding: 10px 20px !important;
+    border-radius: 6px !important;
+    border: none !important;
+    font-weight: 500 !important;
+    transition: all 0.3s ease !important;
+}
+
+.che-contabilidad-view-workers-btn:hover {
+    background-color: #135e96 !important;
+    transform: translateY(-1px);
+}
+
+/* ============================================
+   VISTA DE TRABAJADORES
+   ============================================ */
+
+#che-contabilidad-workers-view {
+    display: none;
+}
+
+.che-contabilidad-workers-header {
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.che-contabilidad-workers-header h3 {
+    margin: 0;
+    flex-grow: 1;
+    color: #333;
+}
+
+#che-contabilidad-back-to-sedes {
+    white-space: nowrap;
+}
+
+/* ============================================
+   TABLA DE TRABAJADORES
+   ============================================ */
+
+.che-admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border: 1px solid #ddd;
+}
+
+.che-admin-table thead {
+    background: #f5f5f5;
+    border-bottom: 2px solid #196cb1;
+}
+
+.che-admin-table th {
+    padding: 1rem;
+    text-align: left;
+    font-weight: 600;
+    color: #333;
+    font-size: 0.95rem;
+}
+
+.che-admin-table tbody tr {
+    border-bottom: 1px solid #ddd;
+    transition: background-color 0.2s ease;
+}
+
+.che-admin-table tbody tr:hover {
+    background-color: #f9f9f9;
+}
+
+.che-admin-table td {
+    padding: 0.75rem 1rem;
+    color: #555;
+    font-size: 0.9rem;
+}
+
+.che-admin-table .che-currency {
+    text-align: right;
+    font-family: 'Courier New', monospace;
+    font-weight: 500;
+}
+
+.che-admin-table .all-btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+    white-space: nowrap;
+}
+
+/* Alineación de columnas en tabla de contabilidad */
+.che-admin-table td:first-child {
+    text-align: left;
+    font-weight: 500;
+    color: #333;
+}
+
+.che-admin-table td[style*="text-align: right"] {
+    text-align: right !important;
+    font-family: 'Courier New', monospace;
+    font-weight: 500;
+}
+
+.che-admin-table td[style*="text-align: center"] {
+    text-align: center !important;
+}
+
+/* ============================================
+   FILTROS
+   ============================================ */
+
+.tablenav {
+    margin-bottom: 1.5rem;
+    padding: 0.75rem;
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.tablenav .alignleft {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.tablenav .alignright {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-left: auto;
+}
+
+.tablenav.top {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    align-items: center;
+}
+
+.alignleft.actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.alignleft.actions select,
+.alignleft.actions input[type="text"],
+.alignleft.actions input[type="date"] {
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    background: #fff;
+}
+
+.alignleft.actions input[type="submit"] {
+    cursor: pointer;
+}
+
+#che-contabilidad-fechas-personalizadas {
+    display: none;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 1024px) {
+    #che-contabilidad-sedes-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    #che-contabilidad-sedes-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+
+    .che-admin-table {
+        font-size: 0.85rem;
+    }
+
+    .che-admin-table th,
+    .che-admin-table td {
+        padding: 0.5rem;
+    }
+
+    .tablenav.top {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .alignleft.actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .alignleft.actions select,
+    .alignleft.actions input {
+        width: 100%;
+    }
+
+    #che-contabilidad-back-to-sedes {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    #che-contabilidad-sedes-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .che-admin-table {
+        font-size: 0.8rem;
+    }
+
+    .che-admin-table th,
+    .che-admin-table td {
+        padding: 0.25rem 0.5rem;
+    }
+
+    .che-admin-table .all-btn {
+        padding: 0.25rem 0.5rem;
+        font-size: 0.8rem;
+    }
+}

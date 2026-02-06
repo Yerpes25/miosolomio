@@ -1,0 +1,1703 @@
+.che-filter-header{
+   display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 0; /* reducido para que la línea sea más ancha */
+  background: #f9f9f9;
+  margin-bottom: 20px;
+  border-radius: 8px;
+}
+
+/* Hacer que la tablenav use todo el ancho disponible dentro del header */
+.che-filter-header .tablenav {
+  width: 100% !important;
+  margin: 0;
+  padding: 0.5rem 0.6rem; /* mantener un poco de separación interna */
+}
+
+.che-filter-header .alignleft.actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.che-filter-header .alignright.actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-left: auto;
+}
+
+/* Botones de búsqueda profesionales - gris claro */
+#che-admin-parts-search-btn,
+#che-admin-vacaciones-search-btn,
+#che-admin-user-search-btn {
+  background-color: #e8e8e8 !important;
+  color: #333 !important;
+  border: 1px solid #d4d4d4 !important;
+  padding: 8px 16px !important;
+  border-radius: 4px !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  font-weight: 500 !important;
+}
+
+#che-admin-parts-search-btn:hover,
+#che-admin-vacaciones-search-btn:hover,
+#che-admin-user-search-btn:hover {
+  background-color: #d9d9d9 !important;
+  border-color: #b8b8b8 !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Botones de exportar - azul para partes y vacaciones */
+#che-partes-exportar,
+#che-vacaciones-exportar,
+#che-partes-refresh-btn,
+#che-vacaciones-refresh-btn {
+  background-color: #2271b1 !important;
+  color: white !important;
+  border: none !important;
+  padding: 8px 16px !important;
+  border-radius: 4px !important;
+  cursor: pointer !important;
+  transition: background-color 0.3s ease !important;
+  font-weight: 500 !important;
+  margin-left: 8px !important;
+}
+
+#che-partes-exportar:hover,
+#che-vacaciones-exportar:hover,
+#che-partes-refresh-btn:hover,
+#che-vacaciones-refresh-btn:hover {
+  background-color: #135e96 !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Forcing equal visual size for export and refresh buttons */
+#che-partes-exportar,
+#che-partes-refresh-btn,
+#che-vacaciones-exportar,
+#che-vacaciones-refresh-btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    min-width: 118px !important;
+    box-sizing: border-box !important;
+}
+
+/* Botón exportar en registros - gris como buscar */
+#che-registros-exportar {
+  background-color: #e8e8e8 !important;
+  color: #333 !important;
+  border: 1px solid #d4d4d4 !important;
+  padding: 8px 16px !important;
+  border-radius: 4px !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  font-weight: 500 !important;
+  margin-left: 8px !important;
+}
+
+#che-registros-exportar:hover {
+  background-color: #d9d9d9 !important;
+  border-color: #b8b8b8 !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Botones de filtro en notificaciones - estado inicial */
+.che-filter-btn {
+  background-color: white !important;
+  color: #333 !important;
+  border: 1px solid #ddd !important;
+  padding: 8px 16px !important;
+  border-radius: 4px !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  font-weight: 500 !important;
+}
+
+.che-filter-btn:hover {
+  border-color: #2271b1 !important;
+  color: #2271b1 !important;
+}
+
+.che-filter-btn.active {
+  background-color: #2271b1 !important;
+  color: white !important;
+  border-color: #2271b1 !important;
+  box-shadow: 0 2px 8px rgba(34, 113, 177, 0.3) !important;
+}
+
+/* Botones tarifa y débito */
+.che-btn-tarifa,
+.che-btn-debito {
+  background-color: #2271b1 !important;
+  color: white !important;
+  border: none !important;
+  padding: 8px 16px !important;
+  border-radius: 4px !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  font-weight: 500 !important;
+}
+
+.che-btn-tarifa:hover,
+.che-btn-debito:hover {
+  background-color: #135e96 !important;
+  box-shadow: 0 2px 8px rgba(34, 113, 177, 0.3) !important;
+}
+
+/* Compact button utility used across admin views */
+.che-btn-compact {
+    padding: 6px 8px !important;
+    border-radius: 4px !important;
+    font-weight: 500 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 4px !important;
+    min-width: auto !important;
+    box-sizing: border-box !important;
+}
+
+/* Small spacing between multiple buttons */
+.che-btn-compact + .che-btn-compact {
+    margin-left: 4px !important;
+}
+
+/* Contabilidad: green (not blue) */
+.che-btn-contabilidad {
+    background-color: #2271b1 !important;
+    color: #ffffff !important;
+    border: 1px solid #1e5f93 !important;
+}
+.che-btn-contabilidad:hover {
+    background-color: #135e96 !important;
+    border-color: #0f4f7a !important;
+    box-shadow: 0 2px 6px rgba(19, 94, 150, 0.18) !important;
+}
+
+/* Trabajadores: use header dark tone present in app */
+.che-btn-trabajadores {
+    background-color: #3d5061 !important;
+    color: #ffffff !important;
+    border: 1px solid #32434f !important;
+}
+.che-btn-trabajadores:hover {
+    background-color: #34424f !important;
+    border-color: #2b363d !important;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12) !important;
+}
+
+/* Ensure previously hardcoded tarifa/debito blue does not override compact classes */
+.che-btn-tarifa, .che-btn-debito {
+    transition: all 0.25s ease !important;
+}
+
+/* Dashicons inside compact buttons: tighten icon-text spacing */
+.che-btn-compact .dashicons {
+    margin-right: 4px !important;
+    width: 18px !important;
+    text-align: center !important;
+    line-height: 1 !important;
+}
+
+/* Botón Aplicar filtros contabilidad */
+#che-contabilidad-aplicar-filtros {
+  background-color: #2271b1 !important;
+  color: white !important;
+  border: none !important;
+  padding: 8px 16px !important;
+  border-radius: 4px !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  font-weight: 500 !important;
+}
+
+#che-contabilidad-aplicar-filtros:hover {
+  background-color: #135e96 !important;
+  box-shadow: 0 2px 8px rgba(34, 113, 177, 0.3) !important;
+}
+
+/* Botones trabajadores - gris claro */
+#che-admin-user-search-btn,
+#che-admin-user-new-btn {
+  background-color: #e8e8e8 !important;
+  color: #333 !important;
+  border: 1px solid #d4d4d4 !important;
+  padding: 8px 16px !important;
+  border-radius: 4px !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  font-weight: 500 !important;
+}
+
+#che-admin-user-search-btn:hover,
+#che-admin-user-new-btn:hover {
+  background-color: #d9d9d9 !important;
+  border-color: #b8b8b8 !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+}
+
+.che-admin-page {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.brand-text {
+    font-size: 24px;
+    font-weight: 600;
+    color: #fff;
+    margin: 0;
+    letter-spacing: -0.5px;
+}
+
+.logo{
+    width: 50px;
+    height: 50px;
+    flex-shrink: 0;
+}
+
+.logo img {
+    max-width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.che-DU{
+    border-bottom: 2px dotted black;
+}
+.che-DE{
+    border-top: 2px dotted black;
+}
+
+.create-user-nomem p input{
+    
+    border-radius: 10px;
+}
+
+
+/* HEADER */
+.che-worker-header-inner{
+    background: linear-gradient(180deg, #3d5061 0%, #556b7f 50%, #3d5061 100%);
+   box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 0.75rem 1.5rem;
+    color: #FFF;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.che-admin-menu-toggle {
+    margin-right: 1rem;
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 1.3rem;
+    cursor: pointer;
+}
+
+.che-admin-menu-toggle:hover{
+    text-shadow: 0 0px 3px rgb(255, 255, 255);
+}
+
+/* Tipografias */
+
+h1 h2{
+    font-family: Cardo;
+}
+
+h3{
+    font-family: sans-serif;
+}
+
+.che-worker-section h2{
+    font-family: Cardo;
+    font-size: 2.5rem;
+}
+
+p{
+    font-family: sans-serif;
+}
+
+/* LAYOUT GENERAL (Menu) */
+
+.che-admin-main {
+    /* display: grid;
+    grid-template-columns: 150px 1fr; */  /* Menu + contenido */
+    /* display: flex;
+    gap: 1.5rem;
+    padding: 1.5rem; */
+    display: grid;
+    grid-template-columns: 15% 85%;
+    flex: 1;
+    overflow: hidden;
+}
+
+.che-admin-sidebar {
+    background: #3d5061;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+
+    /* position: fixed;
+    top: 30;
+    left: 0;
+    height: 100vh;
+    width: 150px; */
+
+    transform: translateX(0);              /* Estado normal: visible */
+    transition: transform 0.3s ease-in-out;
+}
+
+.h2-sedes{
+    margin-top: 0px;
+margin-bottom: 0px;
+}
+
+.che-admin-menu {
+    flex: 1;
+    padding: 10px;
+}
+
+.che-admin-menu h2 {
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 400;
+    padding: 0 0.75rem;
+    opacity: 0.7;
+}
+
+.che-admin-menu ul.che-admin-menu-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+}
+
+.che-admin-menu ul {
+    list-style: none !important; /* Elimina los marcadores de la lista */
+}
+
+
+
+.che-admin-menu button {
+    width: 100%;
+    text-align: left;
+    padding: 0.75rem 1rem;
+    border: none;
+    border-radius: 4px;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.8);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 14px;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.che-admin-menu button .dashicons {
+    font-size: 18px;
+    width: 18px;
+    height: 18px;
+}
+
+.menu-btn:hover{
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+.che-admin-menu a {
+    width: 85%;   /* hay que revisarlo */
+    text-align: left;
+    padding: 0.5rem 0.75rem;
+    border: none;
+    border-radius: 4px;
+    background: transparent;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+#admin-cerrar{
+    text-decoration: none;
+    font-weight: 400;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 14px;
+}
+
+/* Footer del sidebar */
+.che-admin-sidebar-footer {
+    margin-top: auto;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.che-btn-logout {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+.che-btn-logout:hover {
+    background: #d9534f;
+    color: #fff;
+}
+
+.che-btn-logout .dashicons {
+    font-size: 18px;
+    width: 18px;
+    height: 18px;
+}
+
+.logout-icon {
+    font-size: 1rem;
+}
+
+/* Footer general */
+.che-admin-footer {
+    background: #fff;
+    color: rgba(0, 0, 0, 0.6);
+    text-align: center;
+    padding: 0.75rem 1rem;
+    font-size: 0.8rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.che-admin-footer p {
+    margin: 0;
+    font-weight: 300;
+}
+
+.che-admin-menu li.is-active .menu-btn {
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
+    border-left: 3px solid #4caf50;
+    padding-left: calc(1rem - 3px);
+}
+
+.che-admin-menu li.is-active button:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+}
+
+/* Estilos para menús con submenú */
+.che-admin-menu li.has-submenu > .menu-parent {
+    position: relative;
+    justify-content: space-between;
+}
+
+.che-admin-menu li.has-submenu > .menu-parent .submenu-arrow {
+    margin-left: auto;
+    font-size: 16px;
+    transition: transform 0.3s ease;
+}
+
+.che-admin-menu li.has-submenu.submenu-open > .menu-parent .submenu-arrow {
+    transform: rotate(180deg);
+}
+
+/* Submenú */
+.che-admin-menu .submenu {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    padding-left: 1rem;
+}
+
+.che-admin-menu li.has-submenu.submenu-open .submenu {
+    max-height: 500px;
+    margin-top: 0.5rem;
+}
+
+.che-admin-menu .submenu li {
+    margin-bottom: 0.5rem;
+}
+
+.che-admin-menu .submenu button {
+    padding: 0.5rem 0.75rem;
+    font-size: 13px;
+}
+
+.che-admin-menu .submenu li.is-active button {
+    background: rgba(255, 255, 255, 0.2);
+    border-left: 2px solid #4caf50;
+    border-bottom: 2px solid #4caf50;
+    padding-left: calc(0.75rem - 2px);
+}
+
+
+/* Cuando se colapsa la sidebar: solo contenido ocupando todo el ancho */
+.che-admin-page.che-sidebar-collapsed .che-admin-main {
+    grid-template-columns: 1fr;  /* solo una columna */
+    gap: 0;
+}
+
+.che-admin-page.che-sidebar-collapsed .che-admin-sidebar {
+    transform: translateX(-100%);
+    pointer-events: none;
+}
+
+/* CONTENIDO */
+
+.che-admin-content {
+    background: #eceff1;
+    padding: 20px;
+    border-radius: 4px;
+    overflow-x: auto;
+    /* width: 100%;  */         /* ocupa todo el ancho disponible */
+    margin: 0;            /* sin centrado forzado */
+}
+/**
+    * Tablas de toda la aplciacion
+    */
+
+.che-admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 8px;
+}
+
+.che-admin-table thead {
+    background: linear-gradient(180deg, #3d5061 0%, #556b7f 50%, #3d5061 100%);
+    border-radius: 0 8px 8px 0;
+
+}
+
+.che-admin-table th {
+    padding: 10px 12px;
+    text-align: left;
+    font-weight: 600;
+    color: #fff;
+    border-bottom: none;
+    font-size: 13px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.che-admin-table td {
+    padding: 12px;
+    border-bottom: 1px solid #e5e5e5;
+    color: #2c2c2c;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.che-admin-table tbody tr:hover {
+    background: #f6f7f7;
+}
+
+.che-admin-table tbody tr {
+    transition: background-color 0.1s ease;
+}
+
+.che-admin-table {
+        font-size: 12px;
+    }
+
+
+.che-worker-user{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.che-worker-user-info{
+    display: flex;
+    flex-direction: column;
+}
+
+.che-worker-user img{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.che-worker-name{
+    font-weight: 600;
+}
+
+.che-worker-email{
+    font-size: 0.875rem;
+}
+
+.che-logout-link{
+    font-size: 0.9rem;
+
+    text-decoration: none;
+}
+
+.che-logout-link:hover{
+    text-decoration: underline;
+}
+
+/* Estilos para input de búsqueda */
+.che-search-input {
+    max-width: 200px;
+    margin-right: 8px;
+}
+
+/* Ajustes para los selectores de usuarios */
+#che-admin-user-sede-filter,
+#che-admin-user-role-filter {
+    margin-right: 8px;
+}
+
+/* Usuarios: expandir la línea de filtros para que el input crezca y el botón quede al final */
+.che-admin-section[data-section="usuarios"] .tablenav .alignleft.actions {
+    flex: 1 1 auto; /* ocupar espacio disponible */
+    gap: 0.75rem;
+    align-items: center;
+}
+
+.che-admin-section[data-section="usuarios"] #che-admin-user-search {
+    max-width: none; /* permitir que crezca */
+    flex: 1 1 420px; /* crecer más para empujar el botón hasta el final */
+    min-width: 220px;
+}
+
+/* Asegurar que el contenedor de la derecha se mantenga al final */
+.che-admin-section[data-section="usuarios"] .tablenav .alignright.actions {
+    margin-left: auto;
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+}
+
+/* Separación extra para el botón Nuevo Trabajador */
+.che-admin-section[data-section="usuarios"] #che-admin-user-new-btn {
+    margin-left: 8px;
+}
+
+
+
+.che-admin-sede{
+    display: flex;
+    justify-content: space-around;
+}
+
+/* Botones y selects */
+.primary{
+    background-color: #546E7A;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.primary:hover{
+    background: rgba(84, 110, 122, 0.6);
+}
+
+.danger{
+    background-color: #D32F2F;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+} 
+
+.danger:hover{
+    background: rgba(211, 47, 47, 0.6);
+}
+
+.success{
+    background-color: #2D8A56;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.success:hover{
+    background: rgba(36, 178, 150, 0.6);
+}
+
+.back {
+    background-color: #3d5061;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.back:hover{
+    background: rgba(61, 80, 97, 0.6);
+}
+
+.all-btn{
+    padding: 5px;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+}
+
+
+
+#all-btn-delete{
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+#all-btn-delete:hover{
+    background: rgba(231, 76, 60, 0.6);
+}
+
+#all-btn{
+    /* padding: 5px; */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+}
+
+.selects{
+    font-size: 14px;
+    text-align: center;
+    /* background: #b5632b;
+    color: white; */
+    border: solid 1px #000000;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+}
+
+.selects:hover{
+    background: #CED1D3;
+}
+
+/*----Headers de las tablas y cartas----*/
+
+.che-admin-style-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    background: #f9f9f9;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+
+.che-admin-style-header h3 {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 600;
+    color: #1d2327;
+}
+
+.che-admin-style-header-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.che-admin-style-header-actions .dashicons {
+    font-size: 16px;
+    line-height: 1;
+}
+
+/* Cartas */
+
+.che-admin-sedes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1rem;
+}
+
+.che-sede-card {
+    background: #fff;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease; /* Suaviza transform y shadow */
+    cursor: pointer;
+}
+
+/* .che-sede-card:hover{
+    transform: scale(1.05); 
+  
+} */
+
+.che-sede-card__header {
+    display: flex;
+  justify-content: space-between;
+    background: #354c63; /* ajusta al color de tu panel */
+    color: #fff;
+    padding: 0.75rem 1rem;
+}
+
+.che-sede-card__title {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.che-sede-card__body {
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+}
+
+.che-sede-card__footer {
+    padding: 0.75rem 1rem;
+    border-top: 1px solid #eee;
+    display: flex;
+    justify-content: space-around;
+}
+
+.che-sede-card__footer button {
+    padding: 0.35rem 0.75rem;
+}
+
+/* Cartas creacion de usuario y sedes*/
+
+.che-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    
+    display: none;              /* oculto por defecto */
+    align-items: center;        /* centra vertical */
+    justify-content: center;    /* centra horizontal */
+}
+
+.che-modal.is-open {
+    display: flex;          /* visible y centrado */
+}
+
+/* organizacion de modulos dentro de creacion de usuarios */
+
+.create-user-nomem{
+    display: flex;
+    justify-content: space-around;
+}
+
+.create-user-nac{
+    display: flex;
+    justify-content: space-around;
+}
+
+.create-user-rs{
+    display: flex;
+    justify-content: space-around;
+}
+/* Cuando JS lo pone en block, lo mostramos como flex */
+
+/* --- ESTO EVITA QUE SE SALGAN --- */
+.che-form-group input {
+    width: 100%;             /* Se ajusta al contenedor padre */
+    box-sizing: border-box;  /* Incluye el padding en el ancho total */
+    padding: 10px 12px;
+    border: 1.5px solid #cfd8dc;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+    transition: all 0.2s;
+    display: block;          /* Evita comportamientos extraños de inline */
+}
+
+.che-form-help {
+    display: block;
+    margin-top: 4px;
+    font-size: 12px;
+    color: #666;
+    font-style: italic;
+}
+
+.che-modal__backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+}
+
+.che-modal__dialog {
+    position: relative;
+    z-index: 10000;
+    width: 90%;
+    max-width: 720px;
+    max-height: 90vh;
+    
+    background: #fff;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    overflow: hidden;
+}
+
+.che-modal__header {
+    padding: 0.75rem 1.25rem;
+    background: #2c3e50; /* ajusta al color de tu panel */
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.che-modal__header h3 {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.che-modal__close {
+    border: none;
+    background: transparent;
+    color: #fff;
+    font-size: 1.3rem;
+    cursor: pointer;
+}
+
+.che-modal__body {
+    padding: 1.5rem;
+    overflow-x: hidden;
+}
+
+.che-modal__footer {
+    padding: 0.75rem 1.25rem;
+    border-top: 1px solid #eee;
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    background: #f8f9fa;
+}
+
+.che-modal__btn {
+    padding: 0.4rem 0.9rem;
+    border-radius: 4px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.che-modal__btn--secondary {
+    background: #fff;
+    border-color: #ced4da;
+}
+
+.che-modal__btn--primary {
+    background: #196cb1;
+    color: #fff;
+}
+
+/* --- Secciones de formulario --- */
+.che-form-section {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.che-form-section:last-child {
+    border-bottom: none;
+}
+
+.che-form-subtitle {
+    font-size: 0.75rem;
+    color: #196cb1;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+    font-weight: 800;
+}
+
+/* --- Estilo para Selects (igual que inputs) --- */
+.che-form-select {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px 12px;
+    border: 1.5px solid #cfd8dc;
+    border-radius: 8px;
+    font-size: 14px;
+    background-color: white;
+    color: #333;
+    outline: none;
+}
+
+.che-form-select:focus {
+    border-color: #196cb1;
+}
+
+/* --- Refuerzo para evitar desbordamiento --- */
+.che-form-group input, 
+.che-form-select {
+    max-width: 100%; /* Garantiza que nunca supere el padre */
+}
+
+.div-newsede{
+    margin: 15px;
+}
+
+/* estilo de mas info de partes */
+
+#che-admin-parte-detalle-title{
+    text-align: center;
+    font-size: 2rem;
+    border-bottom: 2px solid black;
+    padding: 10px;
+}
+
+#che-admin-parte-detalle-content strong{
+    font-weight: bold;
+}
+
+#che-admin-parte-detalle-content p{
+    padding-left: 45px;
+}
+
+.masinfo-nombre, .masinfo-fecha, .masinfo-estado{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.che-parte-adjuntos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 1rem;
+    margin-top: 0.5rem;
+    padding-left: 45px;
+    padding-bottom: 15px;
+}
+
+.che-parte-adjunto {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 0.5rem;
+    background: #fafafa;
+}
+
+.che-parte-adjunto--image .che-parte-adjunto-thumb img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 3px;
+    display: block;
+}
+
+.che-parte-adjunto-meta {
+    margin-top: 0.4rem;
+    font-size: 13px;
+}
+
+.che-parte-adjunto-title {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+.che-parte-adjunto-download {
+    font-size: 12px;
+    color: #0073aa;
+}
+
+.che-parte-adjunto--file {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.che-parte-adjunto-icon {
+    font-size: 28px;
+}
+
+/* ------estilo de mas detalles del parte------ */
+
+#che-admin-parte-detalle-title{
+    border-radius: 20px 20px 0 0;
+    border: 1px solid black; 
+    margin-bottom: 0;
+    color: white;
+    background-color: #2c3e50;;
+}
+
+#che-admin-parte-detalle-content{
+    border-radius: 0 0 20px 20px;
+    border: 1px solid black;
+}
+
+.btn-detalle-parte{
+    display: flex;
+    justify-content: end;
+}
+
+/*-----estilo para sedes-----*/
+
+.che-admin-sede--header{
+    display: flex;
+    justify-content: end;
+    padding-bottom: 10px;
+}
+
+.che-admin-sede--header div{
+    align-content: center;
+}
+
+.che-admin-sede-detalle-kpis{
+    
+    border-radius: 10px;
+     box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+    background: #fafafa;
+    /* margin-right: 65%; */
+}
+
+.che-sede-card_header{
+    background: #354c63;
+    border-radius: 10px 10px 0 0;
+    color: #fff;
+    padding: 1px 10px;
+    text-align: center;   
+}
+
+.che-sede-card_body{
+    padding: 0.75rem 1rem;
+}
+
+/*-----estilo para vacaciones-----*/
+
+.che-admin-vacaciones-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.che-vac-card {
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background: #fff;
+    
+    box-shadow: 0 1px 3px rgba(0,0,0,.05);
+}
+
+.che-vac-card__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: .5rem;
+    font-weight: 600;
+    color: #fff;
+    background: #354c63;
+    padding: 1rem 1.2rem;
+    border-radius: 6px 6px 0 0;
+}
+.che-vac-card__body{
+    padding: 1rem 1.2rem;
+}
+.che-vac-card__body p {
+    margin: .15rem 0;
+    
+}
+
+.che-vac-card__footer {
+    margin-top: .8rem;
+    display: flex;
+    justify-content: space-around;
+    gap: .5rem;
+    padding: 1rem 1.2rem;
+}
+
+.vac-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.vac-badge--pendiente {
+    background-color: #f1f1f1;
+    color: #333;
+}
+
+.vac-badge--aprobado {
+    background-color: #d4f5dc;
+    color: #1c7c3c;
+}
+
+.vac-badge--rechazado {
+    background-color: #fbd2d5;
+    color: #a32032;
+}
+
+/*----Calendario de las sedes----*/
+
+.che-admin-sede-detalle-top {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.che-sede-card--calendar {
+    /* reutiliza el estilo de tus cards de sede */
+    border-radius: 6px;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+    background: #fafafa;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease; /* Suaviza transform y shadow */
+    cursor: pointer;
+}
+
+.che-sede-calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: .5rem;
+}
+
+.che-sede-calendar-header button {
+    border: 1px solid #ccc;
+    background: #fff;
+    border-radius: 4px;
+    padding: 4px 8px;
+    cursor: pointer;
+}
+
+.che-sede-calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 2px;
+    font-size: .8rem;
+}
+
+.che-sede-cal-day-name {
+    font-weight: 600;
+    text-align: center;
+    padding: 4px 0;
+}
+
+.che-sede-cal-day {
+    text-align: center;
+    padding: 6px 0;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.che-sede-cal-day--empty {
+    cursor: default;
+}
+
+.che-sede-cal-day--holiday {
+    background-color: #ffe4c4;
+    border: 1px solid #ff9800;
+}
+
+/* ========== ESTILOS PARA VISTA DE TRABAJADORES Y PARTES EN DOS COLUMNAS ========== */
+
+.che-admin-sede-two-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.che-admin-sede-column {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    height: 100%;
+    overflow-y: auto;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 1rem;
+    background: #fafafa;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.che-admin-sede-column-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    gap: 1rem;
+}
+
+.che-admin-sede-column h3 {
+    margin: 0;
+    font-size: 1.25rem;
+    color: #2c3e50;
+    font-weight: 600;
+}
+
+.che-filter-input,
+.che-filter-select {
+    padding: 0.5rem 0.75rem;
+    border: 1px solid #dfe6e9;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    background: #fff;
+    min-width: 200px;
+    transition: border-color 0.2s ease;
+}
+
+.che-filter-input:focus,
+.che-filter-select:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+/* Trabajadores - Tarjetas horizontales */
+.che-trabajadores-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+     overflow-y: auto;
+}
+
+.che-trabajador-card-horizontal {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.che-trabajador-card-horizontal:hover {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    transform: translateY(-2px);
+}
+
+.che-trabajador-card__avatar {
+    flex-shrink: 0;
+    width: 50px;
+    height: 50px;
+    margin-right: 1rem;
+    border-radius: 50%;
+    overflow: hidden;
+    background: #e8eaf6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.che-trabajador-card__avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.che-avatar-placeholder {
+    font-size: 1.5rem;
+}
+
+.che-trabajador-card__content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.che-trabajador-card__name {
+    font-weight: 600;
+    font-size: 1rem;
+    color: #2c3e50;
+}
+
+.che-trabajador-card__email {
+    font-size: 0.875rem;
+    color: #7f8c8d;
+}
+
+.che-trabajador-card__role {
+    font-size: 0.8rem;
+    color: #95a5a6;
+    text-transform: capitalize;
+}
+
+/* Partes - Tarjetas horizontales */
+.che-partes-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.che-parte-card-horizontal {
+    display: flex;
+    background: #fff;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+    transition: all 0.2s ease;
+    border-left: 4px solid #95a5a6;
+}
+
+.che-parte-card-horizontal:hover {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    transform: translateY(-2px);
+}
+
+/* Estados de los partes */
+.che-parte-card--validado {
+    border-left-color: #27ae60;
+}
+
+.che-parte-card--rechazado {
+    border-left-color: #e74c3c;
+}
+
+.che-parte-card--pendiente {
+    border-left-color: #f39c12;
+}
+
+.che-parte-card__left {
+    flex-shrink: 0;
+    margin-right: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.che-parte-card__id {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #2c3e50;
+}
+
+.che-parte-card__estado-badge {
+    background: #ecf0f1;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.che-parte-card--validado .che-parte-card__estado-badge {
+    background: #d5f4e6;
+    color: #27ae60;
+}
+
+.che-parte-card--rechazado .che-parte-card__estado-badge {
+    background: #fadbd8;
+    color: #e74c3c;
+}
+
+.che-parte-card--pendiente .che-parte-card__estado-badge {
+    background: #fef5e7;
+    color: #f39c12;
+}
+
+.che-parte-card__content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.che-parte-card__trabajador {
+    font-weight: 600;
+    font-size: 1rem;
+    color: #2c3e50;
+}
+
+.che-parte-card__details {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    font-size: 0.875rem;
+    color: #7f8c8d;
+}
+
+.che-parte-card__details span {
+    display: inline-block;
+}
+
+.che-parte-card__details strong {
+    color: #34495e;
+    margin-right: 0.25rem;
+}
+
+/* Mensaje de vacío */
+.che-empty-message {
+    text-align: center;
+    padding: 2rem;
+    color: #95a5a6;
+    font-style: italic;
+}
+
+/* Vacaciones - Tarjetas horizontales */
+.che-vacaciones-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.che-vacacion-card-horizontal {
+    display: flex;
+    background: #fff;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+    transition: all 0.2s ease;
+    border-left: 4px solid #95a5a6;
+}
+
+.che-vacacion-card-horizontal:hover {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    transform: translateY(-2px);
+}
+
+/* Estados de las vacaciones */
+.che-vacacion-card--aprobado {
+    border-left-color: #27ae60;
+}
+
+.che-vacacion-card--rechazado {
+    border-left-color: #e74c3c;
+}
+
+.che-vacacion-card--pendiente {
+    border-left-color: #f39c12;
+}
+
+.che-vacacion-card__left {
+    flex-shrink: 0;
+    margin-right: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.che-vacacion-card__id {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #2c3e50;
+}
+
+.che-vacacion-card__estado-badge {
+    background: #ecf0f1;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.che-vacacion-card--aprobado .che-vacacion-card__estado-badge {
+    background: #d5f4e6;
+    color: #27ae60;
+}
+
+.che-vacacion-card--rechazado .che-vacacion-card__estado-badge {
+    background: #fadbd8;
+    color: #e74c3c;
+}
+
+.che-vacacion-card--pendiente .che-vacacion-card__estado-badge {
+    background: #fef5e7;
+    color: #f39c12;
+}
+
+.che-vacacion-card__content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.che-vacacion-card__trabajador {
+    font-weight: 600;
+    font-size: 1rem;
+    color: #2c3e50;
+}
+
+.che-vacacion-card__details {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    font-size: 0.875rem;
+    color: #7f8c8d;
+}
+
+.che-vacacion-card__details span {
+    display: inline-block;
+}
+
+.che-vacacion-card__details strong {
+    color: #34495e;
+    margin-right: 0.25rem;
+}
+
+.che-vacacion-card__actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+/* Adding scroll functionality to the three bottom elements */
+.che-trabajadores-list,
+.che-partes-list,
+.che-vacaciones-list {
+    max-height: 300px; /* Adjust height as needed */
+    overflow-y: auto;
+    scrollbar-width: thin; /* For Firefox */
+}
+
+/* Custom scrollbar styling */
+.che-trabajadores-list::-webkit-scrollbar,
+.che-partes-list::-webkit-scrollbar,
+.che-vacaciones-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+.che-trabajadores-list::-webkit-scrollbar-thumb,
+.che-partes-list::-webkit-scrollbar-thumb,
+.che-vacaciones-list::-webkit-scrollbar-thumb {
+    background-color: #bdc3c7;
+    border-radius: 4px;
+}
+
+.che-trabajadores-list::-webkit-scrollbar-track,
+.che-partes-list::-webkit-scrollbar-track,
+.che-vacaciones-list::-webkit-scrollbar-track {
+    background-color: #ecf0f1;
+}
+
+
+
+
+
+

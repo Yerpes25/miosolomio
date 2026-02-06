@@ -1,0 +1,344 @@
+/* ============================================
+   NOTIFICACIONES Y CONFIGURACIÓN - ESTILOS
+   ============================================ */
+
+/* Notificaciones */
+.che-admin-section[data-section="notificaciones-usuario"] h2,
+.che-admin-section[data-section="configuracion"] h2 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin: 0 0 10px 0;
+}
+
+.che-section-description {
+    font-size: 14px;
+    color: #666;
+    margin: 0 0 30px 0;
+}
+
+.che-empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    color: #666;
+    border: 2px dashed #ddd;
+}
+
+.che-notification-row.unread {
+    background: #fff;
+}
+
+.che-notification-row.read {
+    background: #fafafa;
+}
+
+.che-unread-badge {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: #2271b1;
+    border-radius: 50%;
+    margin-left: 8px;
+    vertical-align: middle;
+}
+
+.che-status-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.che-status-badge.read {
+    background: #e8f5e9;
+    color: #2e7d32;
+}
+
+.che-status-badge.unread {
+    background: #fff3cd;
+    color: #856404;
+}
+
+/* ============================================
+   CONFIGURACIÓN - ESTILOS MEJORADOS
+   ============================================ */
+.che-config-wrapper {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.che-config-block {
+    margin-bottom: 30px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.che-config-block h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin: 0;
+    padding: 20px;
+    background: #f8f9fa;
+    border-bottom: 1px solid #e1e4e8;
+}
+
+/* Logo Upload Box */
+.che-logo-upload-box {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+    padding: 30px 20px;
+}
+
+.che-logo-preview-box {
+    width: 120px;
+    height: 120px;
+    border: 2px dashed #c3c4c7;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #f6f7f7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: border-color 0.3s ease;
+}
+
+.che-logo-preview-box:hover {
+    border-color: #2271b1;
+}
+
+.che-logo-preview-box img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+.che-logo-placeholder {
+    text-align: center;
+    color: #8c8f94;
+}
+
+.che-logo-placeholder .dashicons {
+    font-size: 48px;
+    width: 48px;
+    height: 48px;
+    margin-bottom: 8px;
+    opacity: 0.5;
+}
+
+.che-logo-placeholder p {
+    margin: 0;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.che-logo-buttons {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.che-logo-buttons .button {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.che-logo-buttons .button .dashicons {
+    width: 18px;
+    height: 18px;
+    font-size: 18px;
+}
+
+.che-logo-buttons .button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.che-logo-buttons .button-link-delete {
+    color: #d63638;
+    border-color: #d63638;
+}
+
+.che-logo-buttons .button-link-delete:hover {
+    background: #d63638;
+    color: #fff;
+    border-color: #d63638;
+}
+
+/* Formulario de Configuración */
+#che-configuracion-form {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.che-admin-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.che-admin-table tbody tr {
+    border-bottom: 1px solid #e1e4e8;
+}
+
+.che-admin-table tbody tr:last-child {
+    border-bottom: none;
+}
+
+.che-admin-table th {
+    padding: 20px;
+    text-align: left;
+    font-weight: 600;
+    color: #1a1a1a;
+    width: 30%;
+    background: #f8f9fa;
+    vertical-align: top;
+    padding-top: 25px;
+}
+
+.che-admin-table td {
+    padding: 20px;
+}
+
+.che-input {
+    width: 100%;
+    max-width: 500px;
+    padding: 10px 12px;
+    border: 1px solid #c3c4c7;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.che-input:focus {
+    outline: none;
+    border-color: #2271b1;
+    box-shadow: 0 0 0 1px #2271b1;
+}
+
+.che-input[type="email"],
+.che-input[type="tel"],
+.che-input[type="text"] {
+    height: 40px;
+}
+
+textarea.che-input {
+    resize: vertical;
+    min-height: 80px;
+    font-family: inherit;
+}
+
+/* Acciones del Formulario */
+.che-form-actions {
+    margin-top: 0;
+    padding: 20px;
+    background: #f8f9fa;
+    border-top: 1px solid #e1e4e8;
+    text-align: center;
+}
+
+.che-form-actions .all-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 24px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    border: none;
+}
+
+.che-form-actions .all-btn.primary {
+    background: #2271b1;
+    color: #fff;
+}
+
+.che-form-actions .all-btn.primary:hover {
+    background: #135e96;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+.che-form-actions .all-btn.primary:active {
+    transform: translateY(0);
+}
+
+.che-form-actions .all-btn .dashicons {
+    width: 18px;
+    height: 18px;
+    font-size: 18px;
+}
+
+/* Animación de guardando */
+.dashicons-spin {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .che-config-wrapper {
+        max-width: 100%;
+    }
+    
+    .che-logo-upload-box {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+    
+    .che-logo-buttons {
+        flex-direction: row;
+        width: 100%;
+    }
+    
+    .che-logo-buttons .button {
+        flex: 1;
+        justify-content: center;
+    }
+    
+    .che-admin-table th,
+    .che-admin-table td {
+        display: block;
+        width: 100%;
+        padding: 15px;
+    }
+    
+    .che-admin-table th {
+        padding-bottom: 8px;
+        background: transparent;
+    }
+    
+    .che-admin-table td {
+        padding-top: 0;
+    }
+    
+    .che-input {
+        max-width: 100%;
+    }
+}

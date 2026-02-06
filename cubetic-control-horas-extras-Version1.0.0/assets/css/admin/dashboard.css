@@ -1,0 +1,829 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+header.main-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: none;
+}
+
+.card {
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.card i {
+    margin-right: 8px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 20% 80%;
+    grid-template-areas: "sidebar main";
+    min-height: 100vh;
+    width: 100%;
+    background-color: #212529;
+}
+
+/* Barra lateral */
+#sidebar {
+    grid-area: sidebar;
+    position: sticky;
+    top: 0;
+    background-color: #212529;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    height: 100vh;
+    width: 100% !important;
+}
+
+#sidebar nav {
+    flex: 1 1 auto;
+    /* que crezca para rellenar */
+    overflow-y: auto;
+    /* scroll interno si hay muchos enlaces */
+    padding: 1rem;
+    margin-top: 20px;
+}
+
+.che-empresa-nombre {
+    text-align: center;
+    font-size: 14px;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 15px;
+    padding: 0 10px;
+}
+
+.sidebar .logo {
+    text-align: center;
+    margin-bottom: 30px;
+    margin-top: 10px;
+}
+
+.sidebar .logo img {
+    border-radius: 10px;
+    width: 120px;
+    max-width: 100%;
+    height: auto;
+}
+
+.sidebar nav {
+    margin-top: 20px;
+}
+
+.sidebar .user-info {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.sidebar .user-info i {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.sidebar .nav-link {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: .75rem 1rem;
+    text-decoration: none;
+    color: white;
+    font-size: 1rem;
+    /* pon aquí tu tamaño deseado */
+    border-radius: 4px;
+    transition: background .2s;
+}
+
+.sidebar .nav-link i {
+    font-size: 1rem;
+}
+
+.sidebar .nav-link:hover {
+    background-color: #45464b;
+    color: #ffffff;
+}
+
+.main-content {
+    grid-area: main;
+    padding: 20px;
+    width: 100%;
+    background-color: #f8f9fa;
+    /* Color de fondo del contenido */
+    min-height: 100vh;
+}
+
+
+
+@media (max-width: 1100px) {
+
+    header.main-header {
+        display: block;
+        width: 100%;
+        background-color: #343a40;
+        /* Color de fondo del header */
+        padding: 10px 20px;
+    }
+
+    .grid-container {
+        display: block;
+    }
+
+    #sidebar {
+        position: fixed;
+        left: -100%;
+        transition: left 0.5s ease-in-out;
+        width: 80%;
+        z-index: 1000;
+        max-width: 300px;
+    }
+
+    #sidebar.active {
+        left: 0;
+    }
+
+    .main-content {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    /* Ajustes específicos para el botón de cerrar sesión */
+    .sidebar-footer {
+        padding: 1rem;
+        border-top: 1px solid rgba(255, 255, 255, .1);
+    }
+
+    .sidebar-footer .btn {
+        width: auto !important;
+    }
+
+
+    .sidebar-footer .btn i {
+        font-size: 1rem;
+    }
+
+    /**
+    *Estilos para las tabs de los proyectos
+    */
+
+    .tab-btn {
+        font-size: 0.9rem;
+    }
+
+    #materials-table,
+    #tab-workers,
+    #tab-reports {
+        font-size: 0.9rem;
+    }
+
+    /**
+* Estilos para la tabla de trabajadores
+*/
+    #worker_table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 14px;
+    }
+
+}
+
+
+/**
+* Dashboard Styles la edicion de proyectos individuales
+* @package Cubetic Project Manager
+* @subpackage Dashboard
+*/
+.project-container {
+    max-width: 1400px;
+    margin: 20px auto;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.tabs {
+    display: flex;
+    border-bottom: 2px solid #eee;
+    padding: 0 20px;
+}
+
+.tab-btn {
+    padding: 15px 25px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-weight: 500;
+    color: #666;
+}
+
+.tab-btn.active {
+    color: #2271b1;
+    border-bottom: 2px solid #2271b1;
+    margin-bottom: -2px;
+}
+
+.tab-content {
+    display: none;
+    padding: 20px;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.form-row {
+    display: flex;
+    gap: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    flex: 1;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.save-btn {
+    background: #2271b1;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.add-btn {
+    background: #2271b1;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.product-item {
+    display: flex;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.product-item:hover {
+    background-color: #f8f9fa;
+}
+
+/* Dashboard General */
+.cpm-dashboard {
+    background-color: #f8f9fc;
+    font-family: 'Nunito', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: #5a5c69;
+    margin: 0;
+    padding: 0;
+}
+
+.dashboard-container {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+
+}
+
+
+.logo img {
+    max-width: 100%;
+    height: auto;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, .15);
+}
+
+.user-avatar {
+    margin-right: 0.75rem;
+}
+
+.user-avatar img {
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+}
+
+.user-name {
+    margin: 0;
+    font-weight: 600;
+    font-size: 1rem;
+    color: white;
+}
+
+.user-role,
+.user-email {
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
+
+.nav-menu {
+    flex: 1;
+}
+
+.nav-links {
+    flex: 1;
+    padding: 1rem 0;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-bottom: 0.25rem;
+    transition: background-color 0.2s;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #3498db;
+}
+
+.nav-link i {
+    margin-right: 0.75rem;
+    font-size: 1.2rem;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    border-radius: 0.35rem;
+    color: rgba(255, 255, 255, .8);
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.nav-item:hover {
+    background-color: rgba(255, 255, 255, .1);
+    color: white;
+}
+
+.nav-item i {
+    margin-right: 0.75rem;
+    font-size: 1.1rem;
+}
+
+.nav-item .badge {
+    margin-left: auto;
+    font-size: 0.7rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.35rem;
+    background-color: rgba(255, 255, 255, .2);
+}
+
+.logout-btn {
+    display: flex;
+    align-items: center;
+    color: rgba(255, 255, 255, .8);
+    text-decoration: none;
+    padding: 0.75rem 1rem;
+    border-radius: 0.35rem;
+}
+
+.logout-btn:hover {
+    background-color: rgba(255, 255, 255, .1);
+    color: white;
+}
+
+.logout-btn i {
+    margin-right: 0.75rem;
+}
+
+/* Main Content */
+.main-content {
+    padding: 1.5rem;
+    overflow-y: auto;
+}
+
+/* Header */
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.header-title h1 {
+    margin: 0;
+    font-weight: 700;
+    color: #5a5c69;
+    font-size: 1.75rem;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.search-box {
+    position: relative;
+}
+
+.search-box input {
+    padding: 0.375rem 1rem 0.375rem 2.25rem;
+    border: 1px solid #d1d3e2;
+    border-radius: 0.35rem;
+    width: 250px;
+}
+
+.search-box i {
+    position: absolute;
+    left: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #858796;
+}
+
+/* Stats Cards */
+.stats-cards {
+    display: grid;
+    border-radius: 12px;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.stat-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.stat-card:active {
+    transform: translateY(-2px);
+}
+
+.stat-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    font-size: 1.5rem;
+}
+
+.stat-icon i {
+    font-size: 1.5rem;
+    color: white;
+}
+
+.stat-value {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.stat-label {
+    color: #6c757d;
+    font-size: 0.875rem;
+}
+
+.stat-details h3 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin: 0;
+    color: #5a5c69;
+}
+
+.stat-details p {
+    color: #858796;
+    font-weight: 500;
+    margin: 0.25rem 0 1rem;
+}
+
+.stat-progress .progress {
+    height: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.stat-icon.project {
+    background-color: #3498db;
+}
+
+.stat-icon.report {
+    background-color: #2ecc71;
+}
+
+.stat-icon.notice {
+    background-color: #f1c40f;
+}
+
+.stat-icon.worker {
+    background-color: #e74c3c;
+}
+
+/* Dashboard Grid */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 1.5rem;
+}
+
+.dashboard-card {
+    background-color: white;
+    border-radius: 0.35rem;
+    box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
+}
+
+.projects-card {
+    grid-column: span 12;
+}
+
+.activity-card {
+    grid-column: span 6;
+}
+
+.deadlines-card {
+    grid-column: span 6;
+}
+
+.chart-card {
+    grid-column: span 6;
+}
+
+@media (max-width: 1100px) {
+
+    .activity-card,
+    .deadlines-card,
+    .chart-card {
+        grid-column: span 12;
+    }
+}
+
+.card-header {
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid #e3e6f0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.card-header h2 {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #5a5c69;
+}
+
+.card-body {
+    padding: 1.25rem;
+}
+
+/* Proyectos Table */
+.table-responsive {
+    overflow-x: auto;
+}
+
+.projects-table table {
+    width: 100%;
+    margin-bottom: 0;
+}
+
+
+/* Actividad Timeline */
+
+.activity-timeline {
+
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    max-height: 300px;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+/* Custom scrollbar styling for better appearance */
+.activity-timeline::-webkit-scrollbar {
+    width: 6px;
+}
+
+.activity-timeline::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.activity-timeline::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 10px;
+}
+
+.activity-timeline::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}
+
+
+.activity-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.activity-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+z .activity-icon i {
+    font-size: 1rem;
+    color: white;
+}
+
+.activity-icon.project {
+    background-color: #4e73df;
+}
+
+.activity-icon.report {
+    background-color: #1cc88a;
+}
+
+.activity-icon.notice {
+    background-color: #f6c23e;
+}
+
+.activity-icon.worker {
+    background-color: #36b9cc;
+}
+
+.activity-content p {
+    margin: 0 0 0.25rem;
+}
+
+.activity-time {
+    font-size: 0.75rem;
+    color: #858796;
+}
+
+/* Deadlines List */
+.deadlines-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.deadline-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    border-radius: 0.35rem;
+    background-color: #f8f9fc;
+    border-left: 4px solid #4e73df;
+}
+
+.deadline-item.urgent {
+    border-left-color: #e74a3b;
+}
+
+.deadline-project h4 {
+    margin: 0 0 0.25rem;
+    font-weight: 600;
+    color: #5a5c69;
+}
+
+.deadline-project p {
+    margin: 0;
+    color: #858796;
+    font-size: 0.875rem;
+}
+
+.deadline-date {
+    text-align: center;
+}
+
+.days-left {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #4e73df;
+}
+
+.deadline-item.urgent .days-left {
+    color: #e74a3b;
+}
+
+/* Chart Container */
+.chart-container {
+    height: 300px;
+}
+
+.dashboard-section {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.dashboard-section .card-header {
+    padding: 1.5rem;
+}
+
+.dashboard-section .card-title {
+    font-size: 1.25rem;
+    color: #2c3e50;
+}
+
+/* Estilos para tarjetas de proyectos activos en vista móvil/tablet */
+@media (max-width: 1100px) {
+    .projects-card-container .card {
+        margin-bottom: 20px;
+        transition: transform 0.3s;
+    }
+
+    .projects-card-container .card:hover {
+        transform: translateY(-5px);
+    }
+
+    .projects-card-container .card-header {
+        padding: 15px;
+    }
+
+    .projects-card-container .card-body {
+        padding: 15px;
+    }
+
+    .projects-card-container .card-text {
+        margin-bottom: 10px;
+    }
+
+    .projects-card-container .card-footer {
+        padding: 10px 15px;
+        background-color: rgba(0, 0, 0, 0.03);
+    }
+
+    .projects-card-container .card-footer .btn {
+        padding: 0.25rem 0.5rem;
+    }
+
+    .projects-card-container .row {
+        margin-left: -10px;
+        margin-right: -10px;
+    }
+
+    .projects-card-container .col-md-6,
+    .projects-card-container .col-lg-4 {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+
+/* Estilos adicionales para mejorar la experiencia móvil */
+@media (max-width: 767px) {
+    .projects-card-container .card-footer {
+        flex-wrap: wrap;
+        gap: 8px;
+        justify-content: center;
+    }
+
+    .projects-card-container .card-footer .btn {
+        flex: 1 0 40%;
+    }
+}

@@ -1,0 +1,608 @@
+/**
+ * Estilos para el sistema de notificaciones
+ */
+
+/* Contenedor del botón de notificaciones */
+.che-notification-wrapper {
+    margin-left: auto;
+    margin-right: 40px;
+}
+
+/* Botón de notificaciones en el header */
+.che-notification-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    color: #fff;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.2s ease;
+    font-size: 14px;
+}
+
+.che-notification-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+.che-notification-btn .dashicons,
+.che-notification-btn .che-notification-icon {
+    font-size: 18px;
+    width: 18px;
+    height: 18px;
+}
+
+.che-notification-text {
+    font-weight: 500;
+}
+
+/* Badge rojo con contador */
+.che-notification-badge {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    position: absolute !important;
+    top: -6px !important;
+    right: -6px !important;
+    min-width: 20px !important;
+    height: 20px !important;
+    padding: 0 6px !important;
+    background: #dc3545 !important;
+    background-color: #dc3545 !important;
+    color: #fff !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    border-radius: 10px !important;
+    box-shadow: 0 2px 4px rgba(220, 53, 69, 0.4) !important;
+    animation: che-badge-pulse 2s infinite !important;
+    opacity: 1 !important;
+    transform: scale(1) !important;
+    visibility: visible !important;
+    z-index: 10 !important;
+    line-height: 1 !important;
+}
+
+/* Badge cuando está visible */
+.che-notification-badge[style*="display: flex"],
+.che-notification-badge[style*="display:flex"] {
+    display: flex !important;
+    opacity: 1 !important;
+    transform: scale(1) !important;
+    visibility: visible !important;
+}
+
+/* Animación de pulso para llamar la atención */
+@keyframes che-badge-pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(220, 53, 69, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 8px rgba(220, 53, 69, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(220, 53, 69, 0);
+    }
+}
+
+/* Badge cuando no hay notificaciones */
+.che-notification-badge[style*="display: none"],
+.che-notification-badge[style*="display:none"] {
+    display: none !important;
+    animation: none !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .che-notification-btn {
+        padding: 8px 12px;
+    }
+    
+    .che-notification-text {
+        display: none;
+    }
+    
+    .che-notification-btn .dashicons,
+    .che-notification-btn .che-notification-icon {
+        font-size: 20px;
+        width: 20px;
+        height: 20px;
+    }
+}
+
+/* Wrapper para posicionar el dropdown */
+.che-notification-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown de notificaciones */
+.che-notification-dropdown {
+    /* display: none; */
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    min-width: 360px;
+    max-width: 420px;
+    max-height: 480px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+    z-index: 9999;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(-20px);
+    pointer-events: none;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.che-notification-dropdown.is-open {
+    /* display: flex; */
+    flex-direction: column;
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+    /* transition-delay: 0.05s; */
+}
+
+/* Header del dropdown */
+.che-notification-dropdown-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    background: linear-gradient(135deg, #df0b0b86 0%, #df0b0b86 100%);
+    color: #fff;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.che-notification-dropdown-header h4 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.che-mark-all-read {
+    background: rgba(255,255,255,0.2);
+    border: none;
+    color: #fff;
+    font-size: 12px;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.che-mark-all-read:hover {
+    background: rgba(255,255,255,0.3);
+}
+
+/* Lista de notificaciones */
+.che-notification-list {
+    flex: 1;
+    /* overflow-y: auto; */ /*lo dejamos comentado para no hacer doble scroll con el contenedor*/
+    max-height: 320px;
+}
+
+.che-notification-loading {
+    padding: 40px;
+    text-align: center;
+    color: #6c757d;
+}
+
+.che-notification-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px 20px;
+    border-bottom: 1px solid #f0f0f0;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.che-notification-item:hover {
+    background: #f8f9fa;
+}
+
+.che-notification-item:last-child {
+    border-bottom: none;
+}
+
+.che-notification-item.unread {
+    background: #e8f4fd;
+    border-left: 3px solid #4a90a4;
+}
+
+.che-notification-item.unread:hover {
+    background: #d9ecf7;
+}
+
+.che-notification-item .notification-icon {
+    flex-shrink: 0;
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #e9ecef;
+    border-radius: 50%;
+    font-size: 18px;
+}
+
+.che-notification-item.tipo-solicitud .notification-icon {
+    background: #fff3cd;
+}
+
+.che-notification-item.tipo-aprobado .notification-icon {
+    background: #d4edda;
+}
+
+.che-notification-item.tipo-rechazado .notification-icon {
+    background: #f8d7da;
+}
+
+/* Partes de trabajo */
+.che-notification-item.tipo-parte_pendiente .notification-icon {
+    background: #cce5ff;
+}
+
+.che-notification-item.tipo-parte_validado .notification-icon {
+    background: #d4edda;
+}
+
+.che-notification-item.tipo-parte_rechazado .notification-icon {
+    background: #f8d7da;
+}
+
+/* Usuarios */
+.che-notification-item.tipo-super_admin_created .notification-icon {
+    background: #ffeaa7;
+}
+
+.che-notification-item .notification-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.che-notification-item .notification-title {
+    font-weight: 600;
+    color: #212529;
+    font-size: 14px;
+    margin-bottom: 4px;
+    line-height: 1.3;
+}
+
+.che-notification-item .notification-message {
+    color: #6c757d;
+    font-size: 13px;
+    line-height: 1.4;
+    margin-bottom: 6px;
+}
+
+.che-notification-item .notification-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 12px;
+    color: #adb5bd;
+}
+
+.che-notification-item .notification-date {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.che-notification-empty {
+    padding: 40px 24px;
+    text-align: center;
+    color: #6c757d;
+}
+
+.che-notification-empty .empty-icon {
+    font-size: 48px;
+    margin-bottom: 12px;
+    opacity: 0.5;
+}
+
+.che-notification-empty p {
+    margin: 0;
+    font-size: 14px;
+}
+
+/* Footer del dropdown */
+.che-notification-dropdown-footer {
+    padding: 12px 20px;
+    background: #f8f9fa;
+    border-top: 1px solid #e9ecef;
+}
+
+.che-go-to-section {
+    width: 100%;
+    padding: 10px 16px;
+    background: #e9ecef;
+    color: #495057;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.che-go-to-section:hover {
+    background: #dee2e6;
+}
+
+/* Banner de permisos de notificaciones */
+.che-permission-banner {
+    padding: 16px 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fff;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    margin-bottom: 0;
+}
+
+.che-permission-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.che-permission-icon {
+    font-size: 24px;
+    flex-shrink: 0;
+    line-height: 1;
+}
+
+.che-permission-text {
+    flex: 1;
+    min-width: 0;
+}
+
+.che-permission-text strong {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 4px;
+    color: #fff;
+}
+
+.che-permission-text p {
+    margin: 0 0 6px 0;
+    font-size: 13px;
+    line-height: 1.4;
+    color: rgba(255,255,255,0.9);
+}
+
+.che-permission-text p:last-child {
+    margin-bottom: 0;
+}
+
+.che-permission-hint {
+    font-size: 12px !important;
+    color: rgba(255,255,255,0.8) !important;
+    margin-top: 8px !important;
+}
+
+.che-permission-hint strong {
+    display: inline;
+    font-weight: 600;
+}
+
+.che-request-permission-btn {
+    flex-shrink: 0;
+    padding: 8px 16px;
+    background: rgba(255,255,255,0.25);
+    border: 1px solid rgba(255,255,255,0.3);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+    margin-top: 8px;
+}
+
+.che-request-permission-btn:hover {
+    background: rgba(255,255,255,0.35);
+    border-color: rgba(255,255,255,0.5);
+    transform: translateY(-1px);
+}
+
+.che-request-permission-btn:active {
+    transform: translateY(0);
+}
+
+.che-request-permission-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Contenedor de notificaciones */
+.che-notifications-container {
+    max-height: calc(480px - 160px);
+    overflow-y: auto;
+}
+
+/* Responsive para el dropdown */
+@media (max-width: 480px) {
+    .che-notification-dropdown {
+        position: fixed;
+        top: auto;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        min-width: 100%;
+        max-width: 100%;
+        max-height: 70vh;
+        border-radius: 16px 16px 0 0;
+        margin-top: 0;
+    }
+    
+    .che-notification-dropdown-header {
+        padding: 20px;
+    }
+    
+    .che-notification-list {
+        max-height: calc(70vh - 140px);
+    }
+    
+    .che-notification-item {
+        padding: 16px 20px;
+    }
+
+    .che-permission-content {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .che-request-permission-btn {
+        width: 100%;
+        margin-top: 0;
+    }
+}
+
+/* ==========================================
+   TOAST NOTIFICATIONS
+   ========================================== */
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOutRight {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+
+#che-toast-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10000;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 400px;
+    width: 90%;
+}
+
+.che-toast {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    padding: 12px 16px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    cursor: pointer;
+    animation: slideInRight 0.3s ease;
+    border-left: 4px solid #3498db;
+    transition: transform 0.2s ease;
+    position: relative;
+}
+
+.che-toast:hover {
+    transform: scale(1.02);
+}
+
+.toast-icon {
+    flex-shrink: 0;
+    font-size: 24px;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.toast-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.toast-title {
+    font-weight: 600;
+    color: #212529;
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+.toast-message {
+    color: #6c757d;
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+.toast-close {
+    flex-shrink: 0;
+    background: transparent;
+    border: none;
+    color: #adb5bd;
+    font-size: 18px;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 0;
+    border-radius: 4px;
+    transition: all 0.2s;
+}
+
+.toast-close:hover {
+    background: #f0f0f0;
+    color: #495057;
+}
+
+.che-toast.tipo-parte_pendiente,
+.che-toast.tipo-parte_validado,
+.che-toast.tipo-parte_rechazado,
+.che-toast.tipo-parte_nuevo {
+    border-left-color: #9b59b6;
+}
+
+.che-toast.tipo-vacacion_pendiente,
+.che-toast.tipo-vacacion_aprobada,
+.che-toast.tipo-vacacion_rechazada,
+.che-toast.tipo-vacacion_solicitud,
+.che-toast.tipo-solicitud,
+.che-toast.tipo-aprobado,
+.che-toast.tipo-rechazado {
+    border-left-color: #27ae60;
+}
+
+.che-toast.tipo-super_admin_created {
+    border-left-color: #f39c12;
+}
+
+@media (max-width: 480px) {
+    #che-toast-container {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        max-width: 90%;
+        width: 90%;
+    }
+}
