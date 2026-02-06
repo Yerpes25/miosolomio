@@ -23,6 +23,19 @@
     let elements = {};
 
     /**
+     * Función para formatear fecha de YYYY-MM-DD a DD/MM/YYYY
+     * y evitar "Invalid Date"
+     */
+    function formatearFecha(fecha) {
+        if (!fecha || fecha === '0000-00-00' || fecha.includes('Invalid')) return '-';
+        const partes = fecha.split('-');
+        if (partes.length === 3) {
+            return `${partes[2]}/${partes[1]}/${partes[0]}`;
+        }
+        return fecha;
+    }
+
+    /**
      * Inicializar referencias a elementos DOM
      */
     function initElements() {
@@ -44,7 +57,7 @@
 
     function renderVacaciones(vacaciones) {
         if (!elements.listContainer) return;
-        
+
         elements.listContainer.innerHTML = '';
 
         if (!vacaciones || !vacaciones.length) {
@@ -62,7 +75,7 @@
         const sortedVacaciones = [...vacaciones].sort((a, b) => {
             const estadoA = (a.estado || 'pendiente').toLowerCase();
             const estadoB = (b.estado || 'pendiente').toLowerCase();
-            
+
             if (estadoA === 'pendiente' && estadoB !== 'pendiente') return -1;
             if (estadoA !== 'pendiente' && estadoB === 'pendiente') return 1;
             return 0;
@@ -71,7 +84,7 @@
         sortedVacaciones.forEach(v => {
             const tr = document.createElement('tr');
             tr.dataset.vacacionId = v.ID;
-            
+
             const estado = (v.estado || 'pendiente').toLowerCase();
             let estadoClass = 'vac-badge--pendiente';
             if (estado === 'aprobado') {
@@ -79,15 +92,17 @@
             } else if (estado === 'rechazado') {
                 estadoClass = 'vac-badge--rechazado';
             }
-            
+
             const isDisabled = estado !== 'pendiente';
 
             tr.innerHTML = `
                 <td>${v.ID}</td>
                 <td>${v.worker_name || ''}</td>
                 <td>${v.sede_nombre || ''}</td>
-                <td>${v.fecha_inicio || ''}</td>
-                <td>${v.fecha_fin || ''}</td>
+                
+                <td>${(v.fecha_inicio && v.fecha_inicio !== '0000-00-00') ? v.fecha_inicio.split('-').reverse().join('/') : '-'}</td>
+                <td>${(v.fecha_fin && v.fecha_fin !== '0000-00-00') ? v.fecha_fin.split('-').reverse().join('/') : '-'}</td>
+                
                 <td>${v.dias_totales || 0}</td>
                 <td><span class="vac-badge ${estadoClass}">${v.estado || ''}</span></td>
                 <td>
@@ -101,7 +116,6 @@
                     </button>
                 </td>
             `;
-
             elements.listContainer.appendChild(tr);
         });
     }
@@ -109,7 +123,7 @@
     async function cargarVacaciones() {
         // Usar datos iniciales de PHP si están disponibles y no hay filtro por sede
         const sedeId = elements.sedeSelect?.value || '';
-        
+
         if (!sedeId && window.CHEInitialData && window.CHEInitialData.vacaciones) {
             renderVacaciones(window.CHEInitialData.vacaciones);
             setMessage('');
@@ -291,7 +305,7 @@
      */
     function exportVacacionesToCSV() {
         const vacacionesVisibles = obtenerVacacionesVisibles();
-        
+
         if (!vacacionesVisibles || vacacionesVisibles.length === 0) {
             alert('No hay datos para exportar');
             return;
@@ -328,11 +342,11 @@
         const blob = new Blob(['\ufeff' + csv], { type: 'text/csv;charset=utf-8;' });
         const link = document.createElement('a');
         const url = URL.createObjectURL(blob);
-        
+
         link.setAttribute('href', url);
         link.setAttribute('download', `vacaciones-${new Date().getTime()}.csv`);
         link.style.visibility = 'hidden';
-        
+
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
@@ -344,15 +358,15 @@
     function obtenerVacacionesVisibles() {
         const tbody = elements.listContainer;
         if (!tbody) return [];
-        
+
         const rows = tbody.querySelectorAll('tr');
         const vacacionesVisibles = [];
-        
+
         rows.forEach(row => {
             if (row.style.display !== 'none') {
                 const vacId = row.dataset.vacacionId;
                 const cells = row.querySelectorAll('td');
-                
+
                 if (cells.length >= 7) {
                     vacacionesVisibles.push({
                         ID: cells[0].textContent.trim(),
@@ -366,7 +380,7 @@
                 }
             }
         });
-        
+
         return vacacionesVisibles;
     }
 
@@ -377,7 +391,7 @@
         // Botón refrescar
         const refreshBtn = document.getElementById('che-vacaciones-refresh-btn');
         if (refreshBtn) {
-            state.eventHandlers.refreshClick = function() {
+            state.eventHandlers.refreshClick = function () {
                 try {
                     sessionStorage.setItem('che-current-section', 'vacaciones');
                 } catch (e) {
@@ -415,7 +429,7 @@
 
         // Enter en input de búsqueda
         if (elements.searchInput) {
-            state.eventHandlers.searchKeyup = function(e) {
+            state.eventHandlers.searchKeyup = function (e) {
                 if (e.key === 'Enter') filtrarVacaciones();
             };
             elements.searchInput.addEventListener('keyup', state.eventHandlers.searchKeyup);
@@ -423,7 +437,7 @@
 
         // Botones aprobar/rechazar
         if (elements.listContainer) {
-            state.eventHandlers.listClick = function(e) {
+            state.eventHandlers.listClick = function (e) {
                 const btnAprobar = e.target.closest('.che-admin-vac-aprobar');
                 const btnRechazar = e.target.closest('.che-admin-vac-rechazar');
                 const row = e.target.closest('tr');
@@ -477,9 +491,9 @@
      * DESTRUIR MÓDULO
      */
     function destroy() {
-        
+
         removeEventListeners();
-        
+
         // Limpiar estado
         state.eventHandlers = {};
         elements = {};
